@@ -1,0 +1,18 @@
+# Python virtual environment
+venv/
+**/venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Our old Git metadata backups
+.git_backup/
+**/.git_backup/
+
+# Environment/secrets
+.env
+*.env
+
+# VS Code
+.vscode/

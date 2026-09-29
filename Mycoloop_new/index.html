@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="MycoLoop intelligent closed-loop mushroom cultivation dashboard"
+    >
+
+    <title>MycoLoop | Smart Cultivation Dashboard</title>
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+ 
+ 
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <!-- BRAND -->
+        <div class="brand">
+
+            <div class="brand-logo" aria-label="MycoLoop mushroom logo">
+
+                <svg
+                    viewBox="0 0 64 64"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M12 29C13.5 16.5 21.5 10 32 10C42.5 10 50.5 16.5 52 29C52.4 32.1 50.2 34 47.4 34H16.6C13.8 34 11.6 32.1 12 29Z"
+                        fill="currentColor"
+                    />
+
+                    <path
+                        d="M27 33H37V46C37 51 34.8 54 32 54C29.2 54 27 51 27 46V33Z"
+                        fill="currentColor"
+                        opacity="0.72"
+                    />
+
+                    <circle
+                        cx="25"
+                        cy="23"
+                        r="2.5"
+                        fill="white"
+                        opacity="0.65"
+                    />
+
+                    <circle
+                        cx="38"
+                        cy="20"
+                        r="2"
+                        fill="white"
+                        opacity="0.55"
+                    />
+                </svg>
+
+            </div>
+
+
+            <div class="brand-text">
+
+                <h1>MycoLoop</h1>
+
+                <p>
+                    Intelligent Cultivation
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+            <button
+                class="nav-item active"
+                data-target="overview"
+                type="button"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Overview</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="environment"
+                type="button"
+            >
+                <span class="nav-icon">◌</span>
+                <span>Environment</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="cultivation"
+                type="button"
+            >
+                <span class="nav-icon">♧</span>
+                <span>Cultivation</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="equipment"
+                type="button"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Equipment</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="analytics"
+                type="button"
+            >
+                <span class="nav-icon">⌁</span>
+                <span>Analytics</span>
+            </button>
+
+
+            <button
+                class="nav-item"
+                data-target="testing"
+                type="button"
+            >
+                <span class="nav-icon">◇</span>
+                <span>System Testing</span>
+            </button>
+
+        </nav>
+
+
+        <!-- SIDEBAR FOOTER -->
+
+        <div class="sidebar-footer">
+
+            <div class="sidebar-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System running</strong>
+                    <small>MycoLoop V1.0</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN APPLICATION
+    ====================================================== -->
+
+    <main class="app">
+
+
+        <!-- =================================================
+             TOP BAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="eyebrow">
+                    INTELLIGENT CULTIVATION SYSTEM
+                </p>
+
+                <h2>
+                    Cultivation Dashboard
+                </h2>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <div class="header-time">
+
+                    <span>LAST UPDATE</span>
+
+                    <strong id="lastUpdated">
+                        --:--:--
+                    </strong>
+
+                </div>
+
+
+                <div class="system-indicator">
+
+                    <span class="status-dot"></span>
+
+                    <span id="systemStatusText">
+                        System Active
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div class="content">
+
+
+            <!-- =============================================
+                 OVERVIEW
+            ============================================== -->
+
+            <section
+                class="hero-section"
+                id="overview"
+            >
+
+                <div class="hero-content">
+
+                    <span class="hero-label">
+                        MYCOLOOP CONTROL CENTER
+                    </span>
+
+                    <h1>
+                        Smarter conditions.<br>
+                        Better cultivation.
+                    </h1>
+
+                    <p>
+                        Monitor environmental conditions, automate cultivation
+                        equipment and protect resources through closed-loop
+                        control.
+                    </p>
+
+                </div>
+
+
+                <div class="hero-summary">
+
+                    <div class="summary-item">
+
+                        <span>Current Stage</span>
+
+                        <strong id="heroStage">
+                            Fruiting
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-divider"></div>
+
+
+                    <div class="summary-item">
+
+                        <span>Environment</span>
+
+                        <strong id="heroEnvironment">
+                            Stable
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-divider"></div>
+
+
+                    <div class="summary-item">
+
+                        <span>Automation</span>
+
+                        <strong id="heroAutomation">
+                            Active
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 ENVIRONMENT
+            ============================================== -->
+
+            <section
+                class="dashboard-section"
+                id="environment"
+            >
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            LIVE ENVIRONMENT
+                        </p>
+
+                        <h2>
+                            Environment Overview
+                        </h2>
+
+                    </div>
+
+
+                    <div class="live-badge">
+
+                        <span></span>
+
+                        LIVE
+
+                    </div>
+
+                </div>
+
+
+                <div class="metric-grid">
+
+
+                    <!-- TEMPERATURE -->
+
+                    <article class="metric-card">
+
+                        <div class="metric-top">
+
+                            <span class="metric-name">
+                                TEMPERATURE
+                            </span>
+
+                            <span
+                                class="metric-badge normal"
+                                id="temperatureBadge"
+                            >
+                                Normal
+                            </span>
+
+                        </div>
+
+
+                        <div class="metric-value">
+
+                            <span id="temperatureValue">
+                                25.8
+                            </span>
+
+                            <small>°C</small>
+
+                        </div>
+
+
+                        <div class="metric-footer">
+
+                            <span>
+                                Target range
+                            </span>
+
+                            <strong id="temperatureTarget">
+                                20–26°C
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- HUMIDITY -->
+
+                    <article class="metric-card">
+
+                        <div class="metric-top">
+
+                            <span class="metric-name">
+                                HUMIDITY
+                            </span>
+
+                            <span
+                                class="metric-badge normal"
+                                id="humidityBadge"
+                            >
+                                Normal
+                            </span>
+
+                        </div>
+
+
+                        <div class="metric-value">
+
+                            <span id="humidityValue">
+                                84
+                            </span>
+
+                            <small>%</small>
+
+                        </div>
+
+
+                        <div class="metric-footer">
+
+                            <span>
+                                Target range
+                            </span>
+
+                            <strong id="humidityTarget">
+                                80–90%
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- ENVIRONMENT STATUS -->
+
+                    <article class="metric-card environment-card">
+
+                        <div class="metric-top">
+
+                            <span class="metric-name">
+                                ENVIRONMENT
+                            </span>
+
+                            <div class="environment-icon">
+                                ◎
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="environment-state"
+                            id="environmentState"
+                        >
+                            STABLE
+                        </div>
+
+
+                        <p id="environmentMessage">
+                            Conditions are within the target range for the
+                            selected cultivation stage.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 CULTIVATION STAGES
+            ============================================== -->
+
+            <section
+                class="dashboard-section"
+                id="cultivation"
+            >
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            SMART CONTROL
+                        </p>
+
+                        <h2>
+                            Cultivation Stage
+                        </h2>
+
+                    </div>
+
+                    <p class="section-description stage-description">
+                        Environmental targets adapt to the selected stage.
+                    </p>
+
+                </div>
+
+
+                <div class="stage-grid">
+
+
+                    <button
+                        class="stage-card"
+                        data-stage="incubation"
+                        type="button"
+                    >
+
+                        <span class="stage-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Incubation
+                            </strong>
+
+                            <small>
+                                Early growth
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <button
+                        class="stage-card active"
+                        data-stage="fruiting"
+                        type="button"
+                    >
+
+                        <span class="stage-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Fruiting
+                            </strong>
+
+                            <small>
+                                Active cultivation
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <button
+                        class="stage-card"
+                        data-stage="harvest"
+                        type="button"
+                    >
+
+                        <span class="stage-number">
+                            03
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Harvest
+                            </strong>
+
+                            <small>
+                                Final stage
+                            </small>
+
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 EQUIPMENT
+            ============================================== -->
+
+            <section
+                class="dashboard-section"
+                id="equipment"
+            >
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            AUTOMATION
+                        </p>
+
+                        <h2>
+                            Equipment Control
+                        </h2>
+
+                    </div>
+
+
+                    <span class="auto-badge">
+                        AUTO CONTROL
+                    </span>
+
+                </div>
+
+
+                <div class="equipment-grid">
+
+
+                    <!-- FAN -->
+
+                    <article class="equipment-card">
+
+                        <div class="equipment-icon">
+                            ↻
+                        </div>
+
+
+                        <div class="equipment-info">
+
+                            <span>
+                                CLIMATE CONTROL
+                            </span>
+
+                            <h3>
+                                Ventilation Fan
+                            </h3>
+
+                            <p>
+                                Automatically regulates chamber temperature
+                                and airflow.
+                            </p>
+
+                        </div>
+
+
+                        <div class="equipment-state">
+
+                            <span
+                                class="state-pill off"
+                                id="fanState"
+                            >
+                                OFF
+                            </span>
+
+                            <small>
+                                Today's runtime
+                            </small>
+
+                            <strong id="fanRuntime">
+                                00:00:00
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PUMP -->
+
+                    <article class="equipment-card">
+
+                        <div class="equipment-icon">
+                            ◉
+                        </div>
+
+
+                        <div class="equipment-info">
+
+                            <span>
+                                HUMIDITY CONTROL
+                            </span>
+
+                            <h3>
+                                Water Pump
+                            </h3>
+
+                            <p>
+                                Supplies moisture when the chamber requires
+                                additional humidity.
+                            </p>
+
+                        </div>
+
+
+                        <div class="equipment-state">
+
+                            <span
+                                class="state-pill off"
+                                id="pumpState"
+                            >
+                                OFF
+                            </span>
+
+                            <small>
+                                Today's runtime
+                            </small>
+
+                            <strong id="pumpRuntime">
+                                00:00:00
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 ANALYTICS
+            ============================================== -->
+
+            <section
+                class="dashboard-section"
+                id="analytics"
+            >
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            LIVE ANALYTICS
+                        </p>
+
+                        <h2>
+                            Environmental History
+                        </h2>
+
+                    </div>
+
+
+                    <span class="analytics-badge">
+                        CURRENT SESSION
+                    </span>
+
+                </div>
+
+
+                <div class="chart-grid">
+
+
+                    <!-- TEMPERATURE GRAPH -->
+
+                    <article class="chart-card">
+
+                        <div class="chart-header">
+
+                            <div>
+
+                                <span>
+                                    TEMPERATURE
+                                </span>
+
+                                <strong id="chartTemperature">
+                                    25.8°C
+                                </strong>
+
+                            </div>
+
+
+                            <span class="mini-live">
+                                LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="chart-container">
+
+                            <canvas
+                                id="temperatureChart"
+                                width="600"
+                                height="200"
+                            ></canvas>
+
+                        </div>
+
+
+                        <div class="chart-footer">
+
+                            <span>
+                                Earlier
+                            </span>
+
+                            <span>
+                                Now
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- HUMIDITY GRAPH -->
+
+                    <article class="chart-card">
+
+                        <div class="chart-header">
+
+                            <div>
+
+                                <span>
+                                    HUMIDITY
+                                </span>
+
+                                <strong id="chartHumidity">
+                                    84%
+                                </strong>
+
+                            </div>
+
+
+                            <span class="mini-live">
+                                LIVE
+                            </span>
+
+                        </div>
+
+
+                        <div class="chart-container">
+
+                            <canvas
+                                id="humidityChart"
+                                width="600"
+                                height="200"
+                            ></canvas>
+
+                        </div>
+
+
+                        <div class="chart-footer">
+
+                            <span>
+                                Earlier
+                            </span>
+
+                            <span>
+                                Now
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 RESOURCE MONITOR
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            RESOURCE MONITOR
+                        </p>
+
+                        <h2>
+                            Operational Summary
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="resource-grid">
+
+
+                    <article class="resource-card">
+
+                        <span>
+                            FAN RUNTIME
+                        </span>
+
+                        <strong id="resourceFanRuntime">
+                            00:00
+                        </strong>
+
+                        <small>
+                            Current session
+                        </small>
+
+                    </article>
+
+
+
+                    <article class="resource-card">
+
+                        <span>
+                            PUMP RUNTIME
+                        </span>
+
+                        <strong id="resourcePumpRuntime">
+                            00:00
+                        </strong>
+
+                        <small>
+                            Current session
+                        </small>
+
+                    </article>
+
+
+
+                    <article class="resource-card">
+
+                        <span>
+                            SYSTEM STATE
+                        </span>
+
+                        <strong id="resourceSystemState">
+                            Stable
+                        </strong>
+
+                        <small>
+                            Closed-loop monitoring
+                        </small>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 RESOURCE GUARDIAN
+            ============================================== -->
+
+            <section class="guardian-card">
+
+                <div class="guardian-icon">
+                    ◇
+                </div>
+
+
+                <div class="guardian-content">
+
+                    <p class="eyebrow">
+                        RESOURCE GUARDIAN
+                    </p>
+
+                    <h2>
+                        Intelligent equipment protection
+                    </h2>
+
+                    <p>
+                        MycoLoop monitors environmental response after equipment
+                        activation and can stop unnecessary operation when the
+                        expected response is not detected.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="guardian-status protected"
+                    id="guardianStatus"
+                >
+                    PROTECTED
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 DECISION ENGINE
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            CLOSED-LOOP LOGIC
+                        </p>
+
+                        <h2>
+                            Decision Engine
+                        </h2>
+
+                    </div>
+
+
+                    <span class="decision-badge">
+                        AUTOMATIC
+                    </span>
+
+                </div>
+
+
+                <div class="decision-grid">
+
+
+                    <article class="decision-card">
+
+                        <span>
+                            INPUT
+                        </span>
+
+                        <strong>
+                            Temperature
+                        </strong>
+
+                        <p>
+                            Environmental temperature is continuously evaluated.
+                        </p>
+
+                    </article>
+
+
+                    <article class="decision-card">
+
+                        <span>
+                            INPUT
+                        </span>
+
+                        <strong>
+                            Humidity
+                        </strong>
+
+                        <p>
+                            Moisture level is compared with the active stage target.
+                        </p>
+
+                    </article>
+
+
+                    <article class="decision-card">
+
+                        <span>
+                            DECISION
+                        </span>
+
+                        <strong>
+                            Stage Targets
+                        </strong>
+
+                        <p>
+                            Control thresholds change according to cultivation stage.
+                        </p>
+
+                    </article>
+
+
+                    <article class="decision-card">
+
+                        <span>
+                            OUTPUT
+                        </span>
+
+                        <strong>
+                            Fan + Pump
+                        </strong>
+
+                        <p>
+                            Equipment responds only when environmental correction is required.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 SYSTEM TESTING
+            ============================================== -->
+
+            <section
+                class="dashboard-section"
+                id="testing"
+            >
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            VALIDATION
+                        </p>
+
+                        <h2>
+                            System Testing
+                        </h2>
+
+                    </div>
+
+
+                    <span class="demo-badge">
+                        TEST CONTROLS
+                    </span>
+
+                </div>
+
+
+                <p class="section-description">
+                    Use these controls to verify environmental decisions,
+                    equipment response and Resource Guardian protection.
+                </p>
+
+
+                <div class="testing-grid">
+
+
+                    <button
+                        class="test-card"
+                        id="normalTest"
+                        type="button"
+                    >
+
+                        <span class="test-icon">
+                            ✓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Normal Environment
+                            </strong>
+
+                            <small>
+                                Restore target conditions
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <button
+                        class="test-card"
+                        id="temperatureTest"
+                        type="button"
+                    >
+
+                        <span class="test-icon">
+                            ↑
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                High Temperature
+                            </strong>
+
+                            <small>
+                                Test fan response
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <button
+                        class="test-card"
+                        id="humidityTest"
+                        type="button"
+                    >
+
+                        <span class="test-icon">
+                            ↓
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Low Humidity
+                            </strong>
+
+                            <small>
+                                Test pump response
+                            </small>
+
+                        </div>
+
+                    </button>
+
+
+
+                    <button
+                        class="test-card failure-test"
+                        id="failureTest"
+                        type="button"
+                    >
+
+                        <span class="test-icon">
+                            !
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Response Failure
+                            </strong>
+
+                            <small>
+                                Test Resource Guardian
+                            </small>
+
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="test-result"
+                    id="demoResult"
+                >
+
+                    <span class="result-dot"></span>
+
+                    <div>
+
+                        <strong id="demoResultTitle">
+                            System Ready
+                        </strong>
+
+                        <p id="demoResultMessage">
+                            Select a test scenario to validate the control logic.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 RECENT ACTIVITY
+            ============================================== -->
+
+            <section class="dashboard-section">
+
+                <div class="section-title">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            SYSTEM LOG
+                        </p>
+
+                        <h2>
+                            Recent Activity
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="activity-list"
+                    id="activityList"
+                >
+
+                    <div class="activity-item">
+
+                        <span class="activity-time">
+                            --:--
+                        </span>
+
+                        <span class="activity-dot"></span>
+
+                        <div>
+
+                            <strong>
+                                MycoLoop initialized
+                            </strong>
+
+                            <p>
+                                Closed-loop cultivation monitoring is active.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =============================================
+                 FOOTER
+            ============================================== -->
+
+            <footer class="dashboard-footer">
+
+                <div>
+
+                    <strong>
+                        MycoLoop
+                    </strong>
+
+                    <span>
+                        Intelligent Closed-Loop Cultivation System
+                    </span>
+
+                </div>
+
+
+                <span>
+                    Prototype Dashboard · V1.0
+                </span>
+
+            </footer>
+
+        </div>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
